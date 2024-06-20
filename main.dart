@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:learn_flutter/setting.dart';
+// import 'package:flutter/widgets.dart';
 
 import 'feed.dart';
 import 'home.dart';
@@ -30,19 +30,17 @@ class MyHome extends StatefulWidget {
 }
 
 class _MyHomeState extends State<MyHome> {
-  bool _ThemeDk = false;
+  bool _Theme = false;
   bool _AccountAc = false;
-  bool _Opp = false;
+  bool _Opty = false;
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
   }
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
   }
 
@@ -124,163 +122,165 @@ class _MyHomeState extends State<MyHome> {
             const Home(),
             const Feed(),
             const Profile(),
-            ListView(
+            Container(
               padding: const EdgeInsets.all(8),
-              children: [
-                Container(
-                  padding: const EdgeInsets.all(6),
-                  decoration: const BoxDecoration(
-                    border: Border(bottom: BorderSide(width: 1)),
-                  ),
-                  // child: AppBar(
-                  //   leading: const Icon(
-                  //     Icons.person,
-                  //     color: Colors.blue,
-                  //   ),
-                  //   title: const Text('Account'),
-                  // ),
-                  child: const Row(
-                    children: [
-                      Icon(
-                        Icons.person,
-                        color: Colors.blue,
-                      ),
-                      Text(
-                        '  Account',
-                        style: TextStyle(
-                            fontSize: 25, fontWeight: FontWeight.bold),
-                      )
-                    ],
-                  ),
-                ),
-                ListTile(
-                  leading: const Text(
-                    'Change Passwword',
-                    style: TextStyle(fontSize: 20),
-                  ),
-                  trailing: IconButton(
-                    icon: const Icon(Icons.arrow_forward_ios_outlined),
-                    onPressed: () {},
-                  ),
-                ),
-                ListTile(
-                  leading: const Text(
-                    'Content Settings',
-                    style: TextStyle(fontSize: 20),
-                  ),
-                  trailing: IconButton(
-                    icon: const Icon(Icons.arrow_forward_ios_outlined),
-                    onPressed: () {},
-                  ),
-                ),
-                ListTile(
-                  leading: const Text(
-                    'Social',
-                    style: TextStyle(fontSize: 20),
-                  ),
-                  trailing: IconButton(
-                    icon: const Icon(Icons.arrow_forward_ios_outlined),
-                    onPressed: () {},
-                  ),
-                ),
-                ListTile(
-                  leading: const Text(
-                    'Language',
-                    style: TextStyle(fontSize: 20),
-                  ),
-                  trailing: IconButton(
-                    icon: const Icon(Icons.arrow_forward_ios_outlined),
-                    onPressed: () {},
-                  ),
-                ),
-                ListTile(
-                  leading: const Text(
-                    'Privacy and Security',
-                    style: TextStyle(fontSize: 20),
-                  ),
-                  trailing: IconButton(
-                    icon: const Icon(Icons.arrow_forward_ios_outlined),
-                    onPressed: () {},
-                  ),
-                ),
-                Container(
-                  padding: const EdgeInsets.all(8),
-                  decoration: const BoxDecoration(
-                    border: Border(
-                      bottom: BorderSide(width: 1),
+              child: ListView(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: const BoxDecoration(
+                      border: Border(bottom: BorderSide(width: 2)),
+                    ),
+                    child: const Row(
+                      children: [
+                        Icon(
+                          Icons.person,
+                          color: Colors.blue,
+                        ),
+                        Text(
+                          '  Account',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 25),
+                        ),
+                      ],
                     ),
                   ),
-                  // child: AppBar(
-                  //   leading: const Icon(
-                  //     Icons.volume_up,
-                  //     color: Colors.blue,
-                  //   ),
-                  //   title: const Text('Notifications'),
-                  // ),
-                  child: const Row(
+                  ListTile(
+                    leading: const Text(
+                      'Change Password',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    trailing: IconButton(
+                      icon: const Icon(Icons.arrow_forward_ios_outlined),
+                      onPressed: () {},
+                    ),
+                  ),
+                  ListTile(
+                    leading: const Text(
+                      'Content Settings',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    trailing: IconButton(
+                      icon: const Icon(Icons.arrow_forward_ios_outlined),
+                      onPressed: () {},
+                    ),
+                  ),
+                  ListTile(
+                    leading: const Text(
+                      'Social',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    trailing: IconButton(
+                      icon: const Icon(Icons.arrow_forward_ios_outlined),
+                      onPressed: () {},
+                    ),
+                  ),
+                  ListTile(
+                    leading: const Text(
+                      'Language',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    trailing: IconButton(
+                      icon: const Icon(Icons.arrow_forward_ios_outlined),
+                      onPressed: () {},
+                    ),
+                  ),
+                  ListTile(
+                    leading: const Text(
+                      'Privacy and Security',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    trailing: IconButton(
+                      icon: const Icon(Icons.arrow_forward_ios_outlined),
+                      onPressed: () {},
+                    ),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: const BoxDecoration(
+                      border: Border(bottom: BorderSide(width: 2)),
+                    ),
+                    child: const Row(
+                      children: [
+                        Icon(
+                          Icons.volume_up,
+                          color: Colors.blue,
+                        ),
+                        Text(
+                          '  Notification',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 25),
+                        ),
+                      ],
+                    ),
+                  ),
+                  ListTile(
+                    leading: const Text(
+                      'Theme Dark',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    trailing: Switch(
+                      value: _Theme,
+                      onChanged: (value) {
+                        setState(() {
+                          _Theme = value;
+                        });
+                      },
+                      activeColor: Colors.green,
+                      inactiveThumbColor: Colors.amber,
+                    ),
+                  ),
+                  ListTile(
+                    leading: const Text(
+                      'Account Active',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    trailing: Switch(
+                      value: _AccountAc,
+                      onChanged: (bool value) {
+                        setState(() {
+                          _AccountAc = value;
+                        });
+                      },
+                      activeColor: Colors.green,
+                      inactiveThumbColor: Colors.amber,
+                    ),
+                  ),
+                  ListTile(
+                    leading: const Text(
+                      'Opportunity',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    trailing: Switch(
+                      value: _Opty,
+                      onChanged: (bool value) {
+                        setState(() {
+                          _Opty = value;
+                        });
+                      },
+                      activeColor: Colors.green,
+                      inactiveThumbColor: Colors.amber,
+                    ),
+                  ),
+                  Column(
                     children: [
-                      Icon(
-                        Icons.volume_up,
-                        color: Colors.blue,
-                      ),
-                      Text(
-                        '  Notifications',
-                        style: TextStyle(
-                            fontSize: 25, fontWeight: FontWeight.bold),
+                      TextButton(
+                        onPressed: () {},
+                        style: TextButton.styleFrom(
+                          backgroundColor:
+                              const Color.fromARGB(83, 205, 201, 190),
+                          minimumSize: const Size(150, 40),
+                        ),
+                        child: const Text(
+                          'SIGN OUT',
+                          style: TextStyle(color: Colors.black),
+                        ),
                       )
                     ],
-                  ),
-                ),
-                ListTile(
-                  leading: const Text(
-                    'Theme Dark',
-                    style: TextStyle(fontSize: 20),
-                  ),
-                  trailing: Switch(
-                    value: _ThemeDk,
-                    onChanged: (value) {
-                      setState(() {
-                        _ThemeDk = value;
-                      });
-                    },
-                  ),
-                ),
-                ListTile(
-                  leading: const Text(
-                    'Account Active',
-                    style: TextStyle(fontSize: 20),
-                  ),
-                  trailing: Switch(
-                    value: _AccountAc,
-                    onChanged: (value) {
-                      setState(() {
-                        _AccountAc = value;
-                      });
-                    },
-                  ),
-                ),
-                ListTile(
-                  leading: const Text(
-                    'Opportunity',
-                    style: TextStyle(fontSize: 20),
-                  ),
-                  trailing: Switch(
-                    value: _Opp,
-                    onChanged: (value) {
-                      setState(() {
-                        _Opp = value;
-                      });
-                    },
-                  ),
-                ),
-                ElevatedButton(
-                  onPressed: () {},
-                  style:
-                      ElevatedButton.styleFrom(backgroundColor: Colors.green),
-                  child: const Text('Sign out'),
-                )
-              ],
-            ),
+                  )
+                ],
+              ),
+            )
           ]),
         ),
       ),
